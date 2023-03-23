@@ -80,45 +80,6 @@ const createACardElement = (data) => {
 
 let filter = "all";
 
-const backgroundChange = (cards) => {
-
-    // for (i = 0; i < cards.length; i++) {
-    //     if (/^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value)) {
-    //         cards[i].style.backgroundColor = bgInput.value;
-    //     }
-
-    //     if (document.getElementById("darkTheme").checked) {
-    //         cards[i].style.backgroundColor = "#000000";
-    //         cards[i].style.color = "#ffffff"; 
-    //     }
-
-    //     if (document.getElementById("lightTheme").checked) {
-    //         cards[i].style.backgroundColor = "#ffffff";
-    //         cards[i].style.color = "#000000"; 
-    //     }
-    // }
-
-    for (i = 0; i < cards.length; i++) {
-        if (/^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value)) {
-          cards[i].style.backgroundColor = bgInput.value;
-        } else if (
-          document.getElementById("darkTheme").checked &&
-          bgInput
-        ) {
-          cards[i].style.backgroundColor = "#000000";
-          cards[i].style.color = "#ffffff";
-        }
-        if (document.getElementById("darkTheme").checked) {
-          cards[i].style.backgroundColor = "#000000";
-          cards[i].style.colorolor = "#ffffff";
-        }
-      }
-
-
-}
-
-
-
 document.getElementById("all").addEventListener("change", (e) => {
   filter = e.target.value;
   cardContainer.innerHTML = "";
@@ -145,6 +106,29 @@ document.getElementById("twitter").addEventListener("change", (e) => {
   document.getElementById("loadMoreBtn").style.display = "none";
 });
 
+const backgroundChange = (cards) => {
+
+    for (i = 0; i < cards.length; i++) {
+        if (/^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value)) {
+          cards[i].style.backgroundColor = bgInput.value;
+          cards[i].style.color = "#000000";
+
+        } else if (
+          document.getElementById("darkTheme").checked &&
+          bgInput
+        ) {
+          cards[i].style.backgroundColor = "#000000";
+          cards[i].style.color = "#ffffff";
+        }
+        if (document.getElementById("darkTheme").checked) {
+          cards[i].style.backgroundColor = "#000000";
+          cards[i].style.color = "#ffffff";
+        }
+      }
+
+
+}
+
 const loadInitialCards = () => {
   fetch("../data.json")
     .then((response) => response.json())
@@ -160,21 +144,6 @@ const loadInitialCards = () => {
 
             backgroundChange(cards)
 
-            // for (i = 0; i < cards.length; i++) {
-            //   if (/^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value)) {
-            //     cards[i].style.backgroundColor = bgInput.value;
-            //   } else if (
-            //     document.getElementById("darkTheme").checked &&
-            //     bgInput
-            //   ) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            //   if (document.getElementById("darkTheme").checked) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            // }
           }
 
           counter++;
@@ -187,24 +156,6 @@ const loadInitialCards = () => {
 
             backgroundChange(cards)
 
-            // for (i = 0; i < cards.length; i++) {
-            //   if (
-            //     /^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value) &&
-            //     document.getElementById("darkTheme").checked === false
-            //   ) {
-            //     cards[i].style.backgroundColor = bgInput.value;
-            //   } else if (
-            //     document.getElementById("darkTheme").checked &&
-            //     bgInput
-            //   ) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            //   if (document.getElementById("darkTheme").checked) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            // }
             document.getElementById("loadMoreBtn").style.display = "none";
           } else {
             if (counter < initialCardsLoaded) {
@@ -213,24 +164,6 @@ const loadInitialCards = () => {
 
               backgroundChange(cards)
 
-            //   for (i = 0; i < cards.length; i++) {
-            //     if (
-            //       /^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value) &&
-            //       document.getElementById("darkTheme").checked === false
-            //     ) {
-            //       cards[i].style.backgroundColor = bgInput.value;
-            //     } else if (
-            //       document.getElementById("darkTheme").checked &&
-            //       bgInput
-            //     ) {
-            //       cards[i].style.backgroundColor = "#000000";
-            //       cards[i].style.color = "#ffffff";
-            //     }
-            //     if (document.getElementById("darkTheme").checked) {
-            //       cards[i].style.backgroundColor = "#000000";
-            //       cards[i].style.color = "#ffffff";
-            //     }
-            //   }
             }
           }
 
@@ -259,24 +192,6 @@ const loadMore = () => {
 
             backgroundChange(cards)
 
-            // for (i = 0; i < cards.length; i++) {
-            //   if (
-            //     /^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value) &&
-            //     document.getElementById("darkTheme").checked === false
-            //   ) {
-            //     cards[i].style.backgroundColor = bgInput.value;
-            //   } else if (
-            //     document.getElementById("darkTheme").checked &&
-            //     bgInput
-            //   ) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            //   if (document.getElementById("darkTheme").checked) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            // }
           }
           counter++;
         }
@@ -294,24 +209,6 @@ const loadMore = () => {
 
             backgroundChange(cards)
 
-            // for (i = 0; i < cards.length; i++) {
-            //   if (
-            //     /^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value) &&
-            //     document.getElementById("darkTheme").checked === false
-            //   ) {
-            //     cards[i].style.backgroundColor = bgInput.value;
-            //   } else if (
-            //     document.getElementById("darkTheme").checked &&
-            //     bgInput
-            //   ) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            //   if (document.getElementById("darkTheme").checked) {
-            //     cards[i].style.backgroundColor = "#000000";
-            //     cards[i].style.color = "#ffffff";
-            //   }
-            // }
           } else {
             if (
               counter >= currentPosts &&
@@ -321,25 +218,6 @@ const loadMore = () => {
               const cards = document.getElementsByClassName("card");
 
               backgroundChange(cards)
-
-            //   for (i = 0; i < cards.length; i++) {
-            //     if (
-            //       /^#([0-9A-F]{3}){1,2}$/i.test(bgInput.value) &&
-            //       document.getElementById("darkTheme").checked === false
-            //     ) {
-            //       cards[i].style.backgroundColor = bgInput.value;
-            //     } else if (
-            //       document.getElementById("darkTheme").checked &&
-            //       bgInput
-            //     ) {
-            //       cards[i].style.backgroundColor = "#000000";
-            //       cards[i].style.color = "#ffffff";
-            //     }
-            //     if (document.getElementById("darkTheme").checked) {
-            //       cards[i].style.backgroundColor = "#000000";
-            //       cards[i].style.color = "#ffffff";
-            //     }
-            //   }
             }
           }
 
@@ -396,9 +274,11 @@ columnsInput.addEventListener("change", columnsOnChangeHandler);
 const backgroundOnChangeHandler = (e) => {
   const cards = document.getElementsByClassName("card");
 
+
   for (i = 0; i < cards.length; i++) {
     if (/^#([0-9A-F]{3}){1,2}$/i.test(e.target.value)) {
       cards[i].style.backgroundColor = e.target.value;
+      cards[i].style.color = "#000000";
       document.getElementById("darkTheme").checked = false
       document.getElementById("lightTheme").checked = true
 
